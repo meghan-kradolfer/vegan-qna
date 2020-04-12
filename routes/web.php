@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/questions', 'QuestionController@showAll');
+Route::get('questions/question/{id}', 'QuestionController@show');
+
+Route::post('questions/question', array('before'=>'csfr', 'uses'=>'QuestionController@insert') );
+Route::post('questions/answer', array('before'=>'csfr', 'uses'=>'AnswerController@insert') );
