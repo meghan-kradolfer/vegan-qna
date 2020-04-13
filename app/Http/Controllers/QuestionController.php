@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Question;
+
 class QuestionController extends Controller
 {
 	/**
@@ -10,7 +12,10 @@ class QuestionController extends Controller
 	 */
 	public function showAll()
 	{
-		//
+		$questions = Question::orderBy('created_at', 'asc')->get();
+		return view('questions/questions', [
+			'questions' => $questions
+		]);
 	}
 
 	/**
