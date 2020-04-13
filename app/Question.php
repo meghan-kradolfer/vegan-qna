@@ -29,6 +29,8 @@ class Question extends Model
 	 */
 	public function answer_count()
 	{
-		return $this->answers()->selectRaw('count(*) as total, question_id')->groupBy('question_id');
+		return $this->answers()
+					->selectRaw('count(*) as total, question_id')
+					->groupBy('question_id');
 	}
 }

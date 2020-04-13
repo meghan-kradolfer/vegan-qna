@@ -47,23 +47,12 @@ class QuestionController extends Controller
 		]);
 
         if ($validator->fails()) {
-            Session::flash('flash_message','<div class="alert alert-danger">Questions must be greater than 5 characters and contain a question mark</div>');
+			Session::flash('flash_message','<div class="alert alert-danger">Questions must be greater than 5 characters and contain a question mark</div>');
+			return redirect()->back()->withInput();
 		} else {
 			Question::insert($request->get('question'));
 			Session::flash('flash_message','<div class="alert alert-success">Your question has been submitted!</div>');
-		}
-		
-		return Redirect::to('/');
-
-		
-
-		// if($validatedData) {
-		// 	Question::insert($validatedData );
-		// 	Session::flash('flash_message','<p>Your question has been submitted!</p>');
-			
-		// 	return Redirect::to('/');
-		// } else {
-		// 	Session::flash('flash_message','<p>Your question has been submitted!</p>');
-		// }
+			return Redirect::to('/');
+		}	
 	}
 }
