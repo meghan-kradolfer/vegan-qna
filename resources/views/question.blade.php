@@ -22,20 +22,18 @@
 
 		<hr />
 
-		<h5 class="my-4">Answer this question</h5>
-
 		@if (Session::has('flash_message'))
-			<div class="alert alert-success">{!!Session::get('flash_message')!!}</div>
+		{!!Session::get('flash_message')!!}
 		@endif
 
-		<form method="POST" action="{{ url('questions/answer') }}">
+		<form class="mt-4" method="POST" action="{{ url('questions/answer') }}">
 			{{ csrf_field() }}
 			<input type="hidden" name="question_id" class="form-control" placeholder="Name" value="{{ $question->id }}">
 
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group">
-						<textarea name="answer" class="form-control" placeholder="Make it good"></textarea>
+						<textarea name="answer" class="form-control" placeholder="Add a new answer to this question"></textarea>
 						
 						@if ($errors->has('name'))
 							<span class="text-danger">{{ $errors->first('name') }}</span>

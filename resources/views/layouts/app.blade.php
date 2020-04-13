@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Vegan QnA</title>
+        <title>Vegan Q&A</title>
 
 		<!-- Fonts -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel='stylesheet' type='text/css'>
@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="row my-5">
 				<div class="col-sm-12 text-center">
-					<i class="fas fa-paw"></i>
+					<a href="/"><i class="fas fa-paw"></i></a>
 					<h1>Vegan Q&A</h1>
 				</div>
 			</div>

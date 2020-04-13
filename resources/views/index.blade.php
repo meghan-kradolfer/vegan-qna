@@ -23,7 +23,7 @@
 		</form>
 
 		@if (Session::has('flash_message'))
-		<div class="alert alert-success text-center">{!!Session::get('flash_message')!!}</div>
+		{!!Session::get('flash_message')!!}
 		@endif
 
 		<hr/>
@@ -34,7 +34,20 @@
 			@if (count($questions) > 0)
 				@foreach ($questions as $question)
 					<li class="list-group-item link">
-						<a href="{{ url('questions/question/'.$question->id) }}">{{ $question->question }}</a>
+						<a href="{{ url('question/'.$question->id) }}">
+							<span class="question">{{ $question->question }}</span>
+
+							@if (count($question->answer_count) > 0)
+								<small class="answers">
+									{{ $question->answer_count[0]->total }} 
+									@if ($question->answer_count[0]->total > 1)
+									answers
+									@else
+									answer
+									@endif
+								</small>
+							@endif
+						</a>
 					</li>
 				@endforeach
 			@else 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
@@ -10,14 +12,14 @@ use App\Question;
 use App\Answer;
 
 class QuestionController extends Controller
-{
+{	
 	/**
 	 * Display all questions
 	 */
 	public function showAll()
 	{
 		$questions = Question::orderBy('created_at', 'desc')->get();
-		return view('questions/questions', [
+		return view('index', [
 			'questions' => $questions
 		]);
 	}
@@ -32,16 +34,36 @@ class QuestionController extends Controller
         if (!$question)
             abort(404, "Page Not Found");
 
-        return view('questions/question', ['question' => $question, 'answers' => Answer::get_sorted($question_id)]);
+        return view('question', ['question' => $question, 'answers' => Answer::get_sorted($question_id)]);
 	}
 
 	/**
 	 * Insert a single question
 	 */
-	public function insert()
+	public function insert(Request $request)
 	{
-		Question::insert(Request::get('question'));
-        Session::flash('flash_message','<p>Thank you for submitting a question!</p>');
-        return Redirect::to('questions');
+		$validator = Validator::make($request->all(), [
+            'question' =>["required" , "min:5", "max:255", "regex:(\?$)"]  
+		]);
+
+        if ($validator->fails()) {
+            Session::flash('flash_message','<div class="alert alert-danger">Questions must be greater than 5 characters and contain a question mark</div>');
+		} else {
+			Question::insert($request->get('question'));
+			Session::flash('flash_message','<div class="alert alert-success">Your question has been submitted!</div>');
+		}
+		
+		return Redirect::to('/');
+
+		
+
+		// if($validatedData) {
+		// 	Question::insert($validatedData );
+		// 	Session::flash('flash_message','<p>Your question has been submitted!</p>');
+			
+		// 	return Redirect::to('/');
+		// } else {
+		// 	Session::flash('flash_message','<p>Your question has been submitted!</p>');
+		// }
 	}
 }

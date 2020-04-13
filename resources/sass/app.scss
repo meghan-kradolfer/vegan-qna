@@ -14,6 +14,10 @@ h2 {
 	}
 }
 
+small {
+	font-size: 10px;
+}
+
 .container {
     height: 100%;
 	padding: 50px;
@@ -48,6 +52,7 @@ h2 {
 }
 
 .alert {
+	text-align: center;
 	p {
 		margin: 0;
 	}
@@ -56,13 +61,6 @@ h2 {
 ul.list-group {
 	li.list-group-item {
 		padding: 0;
-
-		a, p {
-			margin: 0;
-			padding: 10px;
-			display: block;
-			color: black;
-		}
 
 		&:hover {
 			
@@ -74,6 +72,33 @@ ul.list-group {
 				text-decoration: none;
 				color: #4CA0B5;
 			};
+		}
+
+		a, p {
+			margin: 0;
+			padding: 10px;
+			display: block;
+			color: black;
+		}
+
+		a {
+			position: relative;
+
+			.question {
+				display: inline-block;
+				padding-right: 100px;
+			}
+
+			.answers {
+				display: inline-block;
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				background-color: #4CA0B5;
+				color: #fff;
+				padding:5px 10px;
+			}
+
 		}
 	}
 }

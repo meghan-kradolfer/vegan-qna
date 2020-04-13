@@ -12,6 +12,10 @@ h2 i {
   font-weight: normal;
 }
 
+small {
+  font-size: 10px;
+}
+
 .container {
   height: 100%;
   padding: 50px;
@@ -53,12 +57,25 @@ h2 i {
   font-style: italic;
 }
 
+.alert {
+  text-align: center;
+}
+
 .alert p {
   margin: 0;
 }
 
 ul.list-group li.list-group-item {
   padding: 0;
+}
+
+ul.list-group li.list-group-item:hover.link {
+  border-bottom-color: #4CA0B5;
+}
+
+ul.list-group li.list-group-item:hover a {
+  text-decoration: none;
+  color: #4CA0B5;
 }
 
 ul.list-group li.list-group-item a,
@@ -69,12 +86,22 @@ ul.list-group li.list-group-item p {
   color: black;
 }
 
-ul.list-group li.list-group-item:hover.link {
-  border-bottom-color: #4CA0B5;
+ul.list-group li.list-group-item a {
+  position: relative;
 }
 
-ul.list-group li.list-group-item:hover a {
-  text-decoration: none;
-  color: #4CA0B5;
+ul.list-group li.list-group-item a .question {
+  display: inline-block;
+  padding-right: 100px;
+}
+
+ul.list-group li.list-group-item a .answers {
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: #4CA0B5;
+  color: #fff;
+  padding: 5px 10px;
 }
 
