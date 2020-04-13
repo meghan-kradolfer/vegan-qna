@@ -3,8 +3,78 @@ html {
   height: 100%;
 }
 
+body {
+  background-color: #F5ECEE;
+}
+
+h2 i {
+  color: #484E56;
+  font-weight: normal;
+}
+
 .container {
   height: 100%;
-  padding: 80px 30px;
+  padding: 50px;
+}
+
+.container .fa-paw {
+  font-size: 40px;
+  color: #4CA0B5;
+}
+
+.form-group textarea,
+.form-group input,
+.form-group .btn {
+  border-radius: 0;
+}
+
+.form-group ::-webkit-input-placeholder {
+  color: #989797;
+  font-style: italic;
+}
+
+.form-group :-ms-input-placeholder {
+  color: #989797;
+  font-style: italic;
+}
+
+.form-group ::-moz-placeholder {
+  color: #989797;
+  font-style: italic;
+}
+
+.form-group ::-ms-input-placeholder {
+  color: #989797;
+  font-style: italic;
+}
+
+.form-group ::placeholder {
+  color: #989797;
+  font-style: italic;
+}
+
+.alert p {
+  margin: 0;
+}
+
+ul.list-group li.list-group-item {
+  padding: 0;
+}
+
+ul.list-group li.list-group-item a,
+ul.list-group li.list-group-item p {
+  margin: 0;
+  padding: 10px;
+  display: block;
+  color: black;
+}
+
+ul.list-group li.list-group-item:hover.link {
+  border-bottom-color: #4CA0B5;
+}
+
+ul.list-group li.list-group-item:hover a {
+  text-decoration: none;
+  color: #4CA0B5;
 }
 

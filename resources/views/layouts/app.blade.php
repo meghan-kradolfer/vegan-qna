@@ -12,6 +12,15 @@
     </head>
 
     <body>
-        @yield('content')
+		<div class="container">
+			<div class="row my-5">
+				<div class="col-sm-12 text-center">
+					<i class="fas fa-paw"></i>
+					<h1>Vegan Q&A</h1>
+				</div>
+			</div>
+
+			@yield('content')
+		</div>
     </body>
 </html>
